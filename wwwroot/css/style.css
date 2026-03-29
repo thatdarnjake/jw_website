@@ -549,6 +549,58 @@ header {
     margin-bottom: 12px;
 }
 
+/* ---- Interests View ---- */
+.interests-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 24px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.interests-col .section-title {
+    margin-bottom: 4px;
+}
+
+.interests-col .section-subtitle {
+    margin-bottom: 20px;
+}
+
+.interests-col .add-more {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    opacity: 0.5;
+    margin-top: 12px;
+}
+
+.spotify-embeds {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.spotify-embeds iframe {
+    border: 1px solid var(--border);
+}
+
+.goodreads-embed {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.goodreads-embed .link-pill {
+    align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+    .interests-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
 /* ---- Footer ---- */
 footer {
     text-align: center;

@@ -20,6 +20,7 @@
             <nav class="tab-nav">
                 <button class="tab-btn active" data-view="professional">Professional</button>
                 <button class="tab-btn" data-view="photography">Photography</button>
+                <button class="tab-btn" data-view="interests">Interests</button>
             </nav>
         </div>
     </header>
@@ -51,27 +52,7 @@
             </a>
         </section>
 
-        <!-- Map -->
-        <section class="map-section">
-            <div id="map"></div>
-        </section>
-
-        <!-- Project detail panel (shown on click) -->
-        <section class="project-detail" id="projectDetail" style="display:none;">
-            <button class="detail-close" id="detailClose">&times;</button>
-            <div class="detail-body">
-                <div class="detail-image" id="detailImage"></div>
-                <div class="detail-text">
-                    <h2 id="detailName"></h2>
-                    <p class="detail-location" id="detailLocation"></p>
-                    <div class="detail-meta" id="detailMeta"></div>
-                    <p class="detail-overview" id="detailOverview"></p>
-                    <p class="detail-role" id="detailRole"></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Project list (below map) -->
+        <!-- Project list -->
         <section class="project-list-section">
             <h2 class="section-title">Project Experience</h2>
             <div class="filter-bar">
@@ -93,6 +74,26 @@
                 </select>
             </div>
             <div class="project-grid" id="projectGrid"></div>
+        </section>
+
+        <!-- Project detail panel (shown on click) -->
+        <section class="project-detail" id="projectDetail" style="display:none;">
+            <button class="detail-close" id="detailClose">&times;</button>
+            <div class="detail-body">
+                <div class="detail-image" id="detailImage"></div>
+                <div class="detail-text">
+                    <h2 id="detailName"></h2>
+                    <p class="detail-location" id="detailLocation"></p>
+                    <div class="detail-meta" id="detailMeta"></div>
+                    <p class="detail-overview" id="detailOverview"></p>
+                    <p class="detail-role" id="detailRole"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map -->
+        <section class="map-section">
+            <div id="map"></div>
         </section>
     </div>
 
@@ -116,6 +117,32 @@
 
             <div class="flickr-grid" id="flickrGrid">
                 <p class="gallery-placeholder">Loading photos...</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== INTERESTS VIEW ==================== -->
+    <div id="interestsView" class="view">
+        <section class="interests-section">
+            <div class="interests-col">
+                <h2 class="section-title">Music</h2>
+                <p class="section-subtitle">What I'm listening to.</p>
+                <div class="spotify-embeds">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4mOFPuD1XwUpyjcNOIiXfE?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4RWk76JEcw9yzTDyLtwCfe?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="interests-col">
+                <h2 class="section-title">Reading</h2>
+                <p class="section-subtitle">Books I'm reading and want to read.</p>
+                <div class="goodreads-embed">
+                    <a href="https://www.goodreads.com/user/show/139016600-j" target="_blank" rel="noopener" class="link-pill">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.56 2C8.77 2 6.26 4.66 6.26 8.77c0 4.02 2.51 6.76 6.3 6.76 1.89 0 3.42-.76 4.34-2.13h.06v1.65c0 3.15-1.53 4.76-4.34 4.76-2.19 0-3.76-1.23-4.13-3.06H6.26c.41 2.98 2.89 4.96 6.08 4.96 3.88 0 6.4-2.47 6.4-6.63V2.3h-1.84v1.83h-.06C16.04 2.76 14.47 2 12.56 2zm.17 1.77c2.58 0 4.17 2.07 4.17 5s-1.59 5-4.17 5c-2.61 0-4.24-2.07-4.24-5s1.63-5 4.24-5z"/></svg>
+                        Goodreads Profile
+                    </a>
+                    <p class="gallery-placeholder">Link your Goodreads profile above to showcase your reading list.</p>
+                </div>
             </div>
         </section>
     </div>
