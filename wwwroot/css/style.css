@@ -730,6 +730,19 @@ header {
     border-color: var(--accent);
 }
 
+.captcha-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.captcha-input {
+    width: 80px;
+    text-align: center;
+}
+
 .btn-send {
     align-self: flex-start;
     padding: 10px 28px;

@@ -225,22 +225,66 @@ window.handleFlickrResponse = function(data) {
 
 loadFlickrPhotos();
 
-// ---- Contact Form ----
+// ---- Contact Form (spam-protected) ----
+
+// Obfuscated email addresses - not readable by simple scrapers
+const _c = [106,100,119,105,101,115,116]; // jdwiest
+const _d = [103,109,97,105,108,46,99,111,109]; // gmail.com
+function _addr(tag) {
+    return String.fromCharCode(..._c) + '+' + tag + '@' + String.fromCharCode(..._d);
+}
+
+// Simple math captcha
+let captchaA, captchaB;
+function generateCaptcha() {
+    captchaA = Math.floor(Math.random() * 10) + 1;
+    captchaB = Math.floor(Math.random() * 10) + 1;
+    document.getElementById('captchaQuestion').textContent = `What is ${captchaA} + ${captchaB}?`;
+}
+generateCaptcha();
+
+// Rate limiting
+function checkRateLimit() {
+    const key = 'contact_sends';
+    const now = Date.now();
+    const sends = JSON.parse(localStorage.getItem(key) || '[]').filter(t => now - t < 3600000);
+    if (sends.length >= 3) return false;
+    sends.push(now);
+    localStorage.setItem(key, JSON.stringify(sends));
+    return true;
+}
+
 document.getElementById('contactSend').addEventListener('click', () => {
     const name = document.getElementById('contactName').value.trim();
     const email = document.getElementById('contactEmail').value.trim();
     const body = document.getElementById('contactBody').value.trim();
+    const honeypot = document.getElementById('contactWebsite').value;
+    const answer = document.getElementById('captchaAnswer').value.trim();
     const type = document.querySelector('input[name="contactType"]:checked').value;
+
+    // Honeypot check - bots fill hidden fields
+    if (honeypot) return;
 
     if (!name || !email || !body) {
         alert('Please fill in all fields.');
         return;
     }
 
-    const to = type === 'photography'
-        ? 'jdwiest+snaps@gmail.com'
-        : 'jdwiest+work@gmail.com';
+    // Captcha check
+    if (parseInt(answer) !== captchaA + captchaB) {
+        alert('Incorrect answer. Please try again.');
+        generateCaptcha();
+        document.getElementById('captchaAnswer').value = '';
+        return;
+    }
 
+    // Rate limit check
+    if (!checkRateLimit()) {
+        alert('Too many messages sent. Please try again later.');
+        return;
+    }
+
+    const to = type === 'photography' ? _addr('snaps') : _addr('work');
     const subject = encodeURIComponent(`[${type === 'photography' ? 'Photography' : 'Professional'}] Message from ${name}`);
     const mailBody = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${body}`);
 

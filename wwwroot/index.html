@@ -191,7 +191,13 @@
                 </div>
                 <input type="text" id="contactName" placeholder="Your name" required>
                 <input type="email" id="contactEmail" placeholder="Your email" required>
+                <!-- Honeypot - hidden from humans, bots fill it -->
+                <input type="text" id="contactWebsite" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
                 <textarea id="contactBody" rows="6" placeholder="Your message..." required></textarea>
+                <div class="captcha-row">
+                    <span id="captchaQuestion"></span>
+                    <input type="text" id="captchaAnswer" placeholder="?" class="captcha-input">
+                </div>
                 <button type="button" id="contactSend" class="btn-send">Send</button>
             </form>
         </section>
