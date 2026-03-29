@@ -21,6 +21,7 @@
                 <button class="tab-btn active" data-view="professional">Professional</button>
                 <button class="tab-btn" data-view="photography">Photography</button>
                 <button class="tab-btn" data-view="interests">Interests</button>
+                <button class="tab-btn" data-view="contact">Contact</button>
             </nav>
         </div>
     </header>
@@ -169,6 +170,30 @@
                     <script src="https://www.goodreads.com/review/grid_widget/139016600.J's%20bookshelf:%20read?cover_size=medium&hide_link=&hide_title=&num_books=20&order=d&shelf=read&sort=date_added&widget_id=1774759573" type="text/javascript" charset="utf-8"></script>
                 </div>
             </div>
+        </section>
+    </div>
+
+    <!-- ==================== CONTACT VIEW ==================== -->
+    <div id="contactView" class="view">
+        <section class="contact-section">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">Select a reason, fill in the details, and hit send.</p>
+            <form id="contactForm" class="contact-form" onsubmit="return false;">
+                <div class="contact-type">
+                    <label class="radio-pill">
+                        <input type="radio" name="contactType" value="professional" checked>
+                        <span>Professional</span>
+                    </label>
+                    <label class="radio-pill">
+                        <input type="radio" name="contactType" value="photography">
+                        <span>Photography</span>
+                    </label>
+                </div>
+                <input type="text" id="contactName" placeholder="Your name" required>
+                <input type="email" id="contactEmail" placeholder="Your email" required>
+                <textarea id="contactBody" rows="6" placeholder="Your message..." required></textarea>
+                <button type="button" id="contactSend" class="btn-send">Send</button>
+            </form>
         </section>
     </div>
 

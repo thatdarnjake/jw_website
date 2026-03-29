@@ -224,3 +224,25 @@ window.handleFlickrResponse = function(data) {
 };
 
 loadFlickrPhotos();
+
+// ---- Contact Form ----
+document.getElementById('contactSend').addEventListener('click', () => {
+    const name = document.getElementById('contactName').value.trim();
+    const email = document.getElementById('contactEmail').value.trim();
+    const body = document.getElementById('contactBody').value.trim();
+    const type = document.querySelector('input[name="contactType"]:checked').value;
+
+    if (!name || !email || !body) {
+        alert('Please fill in all fields.');
+        return;
+    }
+
+    const to = type === 'photography'
+        ? 'jdwiest+snaps@gmail.com'
+        : 'jdwiest+work@gmail.com';
+
+    const subject = encodeURIComponent(`[${type === 'photography' ? 'Photography' : 'Professional'}] Message from ${name}`);
+    const mailBody = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${body}`);
+
+    window.location.href = `mailto:${to}?subject=${subject}&body=${mailBody}`;
+});
