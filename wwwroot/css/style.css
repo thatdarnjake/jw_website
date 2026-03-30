@@ -138,7 +138,6 @@ header {
     display: grid;
     grid-template-columns: 1fr 400px;
     gap: 24px;
-    align-items: start;
 }
 
 .pro-left .section-title {
@@ -381,7 +380,6 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
-    max-height: calc(100vh - 200px);
     overflow-y: auto;
     padding-right: 4px;
 }
