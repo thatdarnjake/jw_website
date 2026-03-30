@@ -378,8 +378,8 @@ header {
 
 /* ---- Project Grid ---- */
 .project-grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
     max-height: calc(100vh - 200px);
     overflow-y: auto;
@@ -404,7 +404,7 @@ header {
     border: 1px solid var(--border);
     border-left: 3px solid var(--accent);
     border-radius: var(--radius);
-    padding: 16px 18px;
+    padding: 10px 12px;
     cursor: pointer;
     transition: all 0.2s;
 }
@@ -417,12 +417,11 @@ header {
 }
 
 .card-image {
-    width: 100%;
+    width: calc(100% + 24px);
     aspect-ratio: 16/9;
     overflow: hidden;
     border-radius: var(--radius) var(--radius) 0 0;
-    margin: -16px -18px 12px -18px;
-    width: calc(100% + 36px);
+    margin: -10px -12px 8px -12px;
 }
 
 .card-image img {
@@ -437,26 +436,26 @@ header {
 }
 
 .project-card h3 {
-    font-size: 0.9rem;
+    font-size: 0.78rem;
     font-weight: 600;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .project-card .card-location {
-    font-size: 0.75rem;
+    font-size: 0.68rem;
     color: var(--text-muted);
 }
 
 .project-card .card-sector {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 500;
-    margin-top: 8px;
+    margin-top: 4px;
 }
 
 .project-card .card-status {
-    font-size: 0.68rem;
+    font-size: 0.62rem;
     color: var(--text-muted);
-    margin-top: 2px;
+    margin-top: 1px;
 }
 
 /* ---- Photography View ---- */
@@ -801,7 +800,7 @@ footer p {
     }
 
     .project-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
     .flickr-grid {
