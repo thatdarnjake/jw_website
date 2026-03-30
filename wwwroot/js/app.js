@@ -128,10 +128,20 @@ function showProjectDetail(p) {
         img.onload = () => { imgContainer.style.display = 'block'; };
         imgContainer.innerHTML = '';
         imgContainer.appendChild(img);
-        imgContainer.style.display = 'none'; // hidden until loads
+        imgContainer.style.display = 'none';
     } else {
         imgContainer.innerHTML = '';
         imgContainer.style.display = 'none';
+    }
+
+    // 3D Model (.glb)
+    const modelContainer = document.getElementById('detailModel');
+    if (p.model) {
+        modelContainer.innerHTML = `<model-viewer src="${p.model}" alt="${p.name} 3D model" auto-rotate camera-controls touch-action="pan-y" shadow-intensity="1" exposure="0.8"></model-viewer>`;
+        modelContainer.style.display = 'block';
+    } else {
+        modelContainer.innerHTML = '';
+        modelContainer.style.display = 'none';
     }
 
     const metaParts = [];
@@ -149,7 +159,6 @@ function showProjectDetail(p) {
     document.getElementById('detailRole').innerHTML = `<strong>Role:</strong> ${p.role}`;
 
     panel.style.display = 'block';
-    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 document.getElementById('detailClose').addEventListener('click', () => {
@@ -183,7 +192,7 @@ function renderProjectGrid(projects) {
         `;
         card.addEventListener('click', () => {
             showProjectDetail(p);
-            map.setView([p.lat, p.lng], 10, { animate: true });
+            map.setView([p.lat, p.lng], 6, { animate: true });
         });
         grid.appendChild(card);
     });

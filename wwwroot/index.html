@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 </head>
 <body>
     <header>
@@ -53,49 +54,51 @@
             </a>
         </section>
 
-        <!-- Project list -->
-        <section class="project-list-section">
-            <h2 class="section-title">Project Experience</h2>
-            <div class="filter-bar">
-                <select id="filterRegion">
-                    <option value="all">All Regions</option>
-                    <option value="North America">North America</option>
-                    <option value="South America">South America</option>
-                    <option value="Oceania">Oceania</option>
-                    <option value="Asia">Asia</option>
-                </select>
-                <select id="filterSector">
-                    <option value="all">All Typologies</option>
-                    <option value="Tall Buildings">Tall Buildings</option>
-                    <option value="Maritime">Maritime</option>
-                    <option value="Arts & Culture">Arts & Culture</option>
-                    <option value="Sport">Sport</option>
-                    <option value="Aviation">Aviation</option>
-                    <option value="Civic">Civic</option>
-                </select>
+        <!-- Two-column layout: projects left, map+detail right -->
+        <div class="pro-layout">
+            <!-- Left: project list -->
+            <div class="pro-left">
+                <h2 class="section-title">Project Experience</h2>
+                <div class="filter-bar">
+                    <select id="filterRegion">
+                        <option value="all">All Regions</option>
+                        <option value="North America">North America</option>
+                        <option value="South America">South America</option>
+                        <option value="Oceania">Oceania</option>
+                        <option value="Asia">Asia</option>
+                    </select>
+                    <select id="filterSector">
+                        <option value="all">All Typologies</option>
+                        <option value="Tall Buildings">Tall Buildings</option>
+                        <option value="Maritime">Maritime</option>
+                        <option value="Arts & Culture">Arts & Culture</option>
+                        <option value="Sport">Sport</option>
+                        <option value="Aviation">Aviation</option>
+                        <option value="Civic">Civic</option>
+                    </select>
+                </div>
+                <div class="project-grid" id="projectGrid"></div>
             </div>
-            <div class="project-grid" id="projectGrid"></div>
-        </section>
 
-        <!-- Project detail panel (shown on click) -->
-        <section class="project-detail" id="projectDetail" style="display:none;">
-            <button class="detail-close" id="detailClose">&times;</button>
-            <div class="detail-body">
-                <div class="detail-image" id="detailImage"></div>
-                <div class="detail-text">
+            <!-- Right: map + detail panel -->
+            <div class="pro-right">
+                <div class="map-section">
+                    <div id="map"></div>
+                </div>
+
+                <!-- Project detail panel (shown on click) -->
+                <section class="project-detail" id="projectDetail" style="display:none;">
+                    <button class="detail-close" id="detailClose">&times;</button>
+                    <div class="detail-image" id="detailImage"></div>
+                    <div class="detail-model" id="detailModel"></div>
                     <h2 id="detailName"></h2>
                     <p class="detail-location" id="detailLocation"></p>
                     <div class="detail-meta" id="detailMeta"></div>
                     <p class="detail-overview" id="detailOverview"></p>
                     <p class="detail-role" id="detailRole"></p>
-                </div>
+                </section>
             </div>
-        </section>
-
-        <!-- Map -->
-        <section class="map-section">
-            <div id="map"></div>
-        </section>
+        </div>
     </div>
 
     <!-- ==================== PHOTOGRAPHY VIEW ==================== -->
