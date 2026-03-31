@@ -97,7 +97,7 @@ header {
 
 /* ---- Links Bar ---- */
 .links-bar {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 20px auto 0;
     padding: 0 24px;
     display: flex;
@@ -132,11 +132,11 @@ header {
 
 /* ---- Professional Two-Column Layout ---- */
 .pro-layout {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 20px auto 0;
     padding: 0 24px 60px;
     display: grid;
-    grid-template-columns: 1fr 400px;
+    grid-template-columns: 1fr 420px;
     gap: 24px;
 }
 
@@ -147,9 +147,18 @@ header {
 .pro-right {
     position: sticky;
     top: 80px;
+    align-self: start;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+
+@media (max-width: 1280px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 1024px) {
@@ -158,6 +167,8 @@ header {
     }
     .pro-right {
         position: static;
+        max-height: none;
+        overflow-y: visible;
     }
 }
 
@@ -378,8 +389,9 @@ header {
 /* ---- Project Grid ---- */
 .project-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+    max-height: calc(100vh - 200px);
     overflow-y: auto;
     padding-right: 4px;
 }
@@ -799,6 +811,7 @@ footer p {
 
     .project-grid {
         grid-template-columns: 1fr 1fr;
+        max-height: none;
     }
 
     .flickr-grid {
